@@ -1,5 +1,5 @@
 {
-  "name": "host-starter",
+  "name": "@mohantalachutla/host-starter",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production --config ./webpack/webpack.config.js ",
@@ -13,6 +13,9 @@
     "name": "Mohan Talachutla",
     "email": "mohan.talachutla@gmail.com"
   },
+  "files": [
+    "lib/"
+  ],
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/plugin-transform-runtime": "^7.15.8",
@@ -33,6 +36,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.10",
+    "@mohantalachutla/mfe-utils": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
