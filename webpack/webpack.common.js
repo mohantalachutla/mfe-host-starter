@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const Dotenv = require("dotenv-webpack");
 const path = require("path");
+const { webpack } = require("@mohantalachutla/mfe-utils/lib/index.cjs");
 
 const packageJson = require(path.resolve(__dirname, "../package.json"));
 const deps = packageJson.dependencies;
@@ -35,23 +36,13 @@ module.exports = {
   },
 
   plugins: [
-    new ModuleFederationPlugin({
-      name: "host_starter",
-      remotes: {
+    webpack.configureMFRemoteReactPlugin(ModuleFederationPlugin)(
+      "host_starter",
+      {
         mfe_starter: "mfe_starter@http://localhost:8081/remoteEntry.js",
       },
-      shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
-        },
-      },
-    }),
+      deps
+    ),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, "../src/index.html"),
     }),
