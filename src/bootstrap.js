@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// register all events
+import "mfe-helpers/events/handlers";
 import "./index.css";
 import App from "./App";
 import ErrorBoundary from "components/commons/ErrorBoundary";

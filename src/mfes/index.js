@@ -1,5 +1,3 @@
 import mfeStarter from "./mfe-starter";
 
-export default {
-  mfeStarter,
-};
+export { mfeStarter };
