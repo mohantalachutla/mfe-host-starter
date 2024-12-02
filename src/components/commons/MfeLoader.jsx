@@ -7,6 +7,16 @@ const MfeLoader = ({
   loaderOptions: { url, name, moduleName, defaultComponent, enableCache },
   ...props
 }) => {
+  // const cache = useSelector((state) => state.cache?.cache);
+  // const dispatch = useDispatch();
+  // const loadMfe = webpack
+  //   .createMfeLoader
+  //   cache,
+  //   ((updated) => {
+  //     updated && dispatch(setCache({ cache: updated }));
+  //   },
+  //   () => {}
+  //   );
   const MfePage = useMemo(
     () =>
       React.lazy(() =>

@@ -13,7 +13,7 @@ class ErrorBoundary extends React.Component {
     console.error(error, errorInfo);
   }
   render() {
-    if (this.state.hasError && process.env.NODE_ENV === "production") {
+    if (this.state.hasError) {
       return this.props.fallback || <h1>Something went wrong.</h1>;
     }
     return this.props.children;
