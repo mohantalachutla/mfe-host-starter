@@ -1,4 +1,8 @@
-import { storybookWebpackConfig } from "../scripts/storybook";
+import {
+  storybookBabelConfig,
+  storybookTypescriptConfig,
+  storybookWebpackConfig,
+} from "../scripts/storybook";
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
@@ -12,8 +16,23 @@ const config = {
   ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: {},
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
   },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: "automatic",
+        },
+      },
+    },
+  }),
   webpackFinal: storybookWebpackConfig,
+  babel: storybookBabelConfig, // using swc for now
+  typescript: storybookTypescriptConfig,
 };
 export default config;
