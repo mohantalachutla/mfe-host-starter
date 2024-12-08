@@ -1,3 +1,3 @@
-import Page from "./Pure";
+import Page from './Pure';
 
 export default Page;

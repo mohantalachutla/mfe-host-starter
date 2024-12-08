@@ -43,7 +43,7 @@
     "sb:build": "storybook build",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "lint:format": "prettier ./**/*.{js, jsx,ts, tsx,mjs,cjs,json} --write .",
+    "lint:format": "prettier ./**/*.{js,jsx,ts,tsx,mjs,cjs,json} --write .",
     "lint:staged": "lint-staged",
     "lint:all": "npm run lint:fix && npm run lint:format"
   },

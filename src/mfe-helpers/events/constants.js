@@ -1,4 +1,4 @@
-import { mfeStarter } from "mfes";
+import { mfeStarter } from 'mfes';
 const { mfe, host } = mfeStarter.events;
 
 export const consumes = {

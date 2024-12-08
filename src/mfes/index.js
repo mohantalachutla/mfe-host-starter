@@ -1,3 +1,3 @@
-import mfeStarter from "./mfe-starter";
+import mfeStarter from './mfe-starter';
 
 export { mfeStarter };

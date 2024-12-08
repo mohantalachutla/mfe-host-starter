@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Cache } from "@mohantalachutla/mfe-utils";
+import { createSlice } from '@reduxjs/toolkit';
+import { Cache } from '@mohantalachutla/mfe-utils';
 
 const cacheSlice = createSlice({
-  name: "cache",
+  name: 'cache',
   initialState: {
     cache: new Cache(),
   },

@@ -1,6 +1,5 @@
-import { registry } from "@mohantalachutla/mfe-utils";
-import actions from "./actions";
-import { produces } from "./constants";
+import { registry } from '@mohantalachutla/mfe-utils';
+import actions from './actions';
 
 const _consumes = {
   MFE_STARTER_HOST_READY: ({ name }) => {
