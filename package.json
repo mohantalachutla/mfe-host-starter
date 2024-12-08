@@ -34,11 +34,10 @@
     "port": 8080
   },
   "scripts": {
-    "build": "webpack --mode production --config ./webpack/webpack.config.js ",
-    "build:dev": "webpack --mode development --config ./webpack/webpack.config.js ",
-    "build:start": "cd dist && PORT=8080 npx serve",
-    "start": "webpack serve --mode development --config ./webpack/webpack.config.js",
-    "start:live": "webpack serve --mode development --live-reload --hot --config ./webpack/webpack.config.js ",
+    "start": "node lib/index.js",
+    "start:dev": "webpack serve --mode development --live-reload --hot --config ./webpack/webpack.config.cjs ",
+    "build": "webpack --mode production --config ./webpack/webpack.config.cjs ",
+    "build:dev": "webpack --mode development --watch --config ./webpack/webpack.config.cjs ",
     "sb": "storybook dev -p 6006",
     "sb:build": "storybook build",
     "lint": "eslint",
