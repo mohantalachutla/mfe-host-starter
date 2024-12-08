@@ -9,6 +9,9 @@ import ErrorBoundary from 'components/commons/ErrorBoundary';
 
 const rootElement = document.getElementById('app');
 if (!rootElement) throw new Error('Failed to find the root element');
+
+// TODO:validate config file
+
 const root = ReactDOM.createRoot(rootElement);
 
 root.render(
