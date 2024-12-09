@@ -1,5 +1,5 @@
 import React from 'react';
-import MfeLoader from 'components/commons/MfeLoader';
+import MfeLoader from 'components/common/MfeLoader';
 import { mfeStarter } from 'mfes';
 
 // FIXME: error boundary
