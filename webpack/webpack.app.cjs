@@ -49,5 +49,5 @@ module.exports = {
       // core node modules
       ...getFallbackConfig(nodeModules),
     },
-  }
+  },
 };
