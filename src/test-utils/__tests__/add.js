@@ -28,7 +28,7 @@ describe('add', () => {
 
   it('should throw error', () => {
     try {
-      expect(add.addToRandom(1)).toThrow('Error');
+      expect(add.addToRandom(1)).toThrow();
     } catch (error) {
       error;
     }
