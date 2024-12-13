@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Spinner as FlowbiteSpinner } from 'flowbite-react';
+import FlowbiteSpinner from '../base/Spinner';
 
 export const Loader = () => {
   const {
