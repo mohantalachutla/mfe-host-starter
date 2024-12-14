@@ -1,4 +1,4 @@
-import packageJson from '../../package.json';
+import { TOKEN_KEY } from '../env';
 
 export const verifyToken = (token) => {
   if (token) {
@@ -8,7 +8,7 @@ export const verifyToken = (token) => {
 };
 
 export const getToken = () => {
-  return localStorage.getItem(packageJson.name + 'AccessToken');
+  return localStorage.getItem(TOKEN_KEY);
 };
 
 export const isVerifiedUser = () => {

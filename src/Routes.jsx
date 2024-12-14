@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Page from './pages/Page';
 import PageNotFound from './components/common/PageNotFound';
+import Text from './components/base/Text';
 import Logout from './pages/Logout';
 import Home from './pages/Home';
 
@@ -14,7 +15,7 @@ const AppRoutes = () => {
     <Routes>
       {/* protected routes */}
       <Route index element={withProtection(<Home />)} />
-      <Route path="/product" element={withProtection(<Page />)} />
+      <Route path="product" element={withProtection(<Page />)} />
 
       {/* public routes */}
       <Route path="login" element={<Login />} />
@@ -32,10 +33,10 @@ const withProtection = (element) => {
     return element;
   }
   return (
-    <div>
-      <h3>
+    <Text>
+      <Text variant="h3">
         Please <Link to="/login">Login</Link> to view this page
-      </h3>
-    </div>
+      </Text>
+    </Text>
   );
 };

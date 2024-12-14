@@ -1,6 +1,6 @@
 import axios from 'axios';
 import packageJson from '../../package.json';
-import { API_URL } from '../env';
+import { API_URL, TOKEN_KEY } from '../env';
 
 class HttpClient {
   constructor(baseURL = '', defaultHeaders = {}) {
@@ -22,14 +22,14 @@ class HttpClient {
   initializeRequestInterceptor() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem(packageJson.name + 'AccessToken');
+        const token = localStorage.getItem(TOKEN_KEY);
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`;
         }
         return config;
       },
       (error) => {
-        console.error('Request Error: ', error);
+        // console.error('Request Error: ', error);
         return Promise.reject(error);
       }
     );
@@ -41,16 +41,22 @@ class HttpClient {
   initializeResponseInterceptor() {
     this.axiosInstance.interceptors.response.use(
       (response) => {
-        return response.data;
+        const { data } = response;
+        if (data.responseCode === 400) {
+          throw new Error(data.responseMessage);
+        }
+        return data.payload;
       },
       (error) => {
-        console.error('Response Error: ', error);
+        // console.error('Response Error: ', error);
         if (error.response) {
+          const { data } = error.response;
           // Handle 4xx, 5xx errors
           if (error.response.status === 401) {
             console.warn('Unauthorized! Redirecting to login...');
             window.location.href = '/login';
           }
+          throw new Error(data.responseMessage);
         }
         return Promise.reject(error);
       }

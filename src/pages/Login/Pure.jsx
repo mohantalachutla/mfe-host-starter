@@ -1,11 +1,15 @@
-import Container from '../../components/base/Container';
+import { useDispatch } from 'react-redux';
+import Login from 'components/Login';
+import { loginAction } from 'actions';
+import useRedirect from 'hooks/useRedirect';
 
-const Login = () => {
-  return (
-    <Container>
-      <h1>Login</h1>
-    </Container>
-  );
+const LoginPage = () => {
+  const dispatch = useDispatch();
+  useRedirect();
+  const handleSubmit = (data) => {
+    dispatch(loginAction(data));
+  };
+  return <Login onSubmit={handleSubmit} />;
 };
 
-export default Login;
+export default LoginPage;
