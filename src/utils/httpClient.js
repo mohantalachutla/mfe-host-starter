@@ -50,16 +50,19 @@ class HttpClient {
       },
       (error) => {
         // console.error('Response Error: ', error);
-        if (error.response) {
+        if (error.response?.status === 401) {
+          throw new Error('Unauthorized');
+        }
+        if (error.response?.status === 403) {
+          throw new Error('Forbidden');
+        }
+        if (error.response?.status === 404) {
+          throw new Error('Not Found');
+        }
+        if (error.response && error.response?.data) {
           const { data } = error.response;
-          // Handle 4xx, 5xx errors
-          if (error.response.status === 401) {
-            console.warn('Unauthorized! Redirecting to login...');
-            if (window) window.location.href = '/login';
-          }
           throw new Error(data.responseMessage);
         }
-        return Promise.reject(error);
       }
     );
   }

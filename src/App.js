@@ -31,10 +31,10 @@ const Menu = () => {
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Navbar.Link
-          active={window.location.pathname === '/'}
-          onClick={() => navigate('/')}
+          active={window.location.pathname === '/product'}
+          onClick={() => navigate('/product')}
         >
-          Home
+          Shop Now
         </Navbar.Link>
         <Navbar.Link
           active={window.location.pathname === '/orders'}

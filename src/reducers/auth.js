@@ -24,14 +24,16 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: initialState,
   reducers: {
-    loginSuccess: (state, { payload: { user, token } }) => {
+    loginSuccess: (state, { payload: { username, email, status, token } }) => {
       if (!token) {
         return;
       }
       setToken(token);
       state.user = {
         ...state.user,
-        ...(user ?? {}),
+        username,
+        email,
+        status,
       };
       state.isLoggedIn = !!getToken();
       state.token = token;
@@ -41,9 +43,9 @@ const authSlice = createSlice({
       state = initialState;
     },
     logout: (state) => {
+      removeToken();
       // eslint-disable-next-line no-unused-vars
       state = initialState;
-      removeToken();
     },
   },
 });
