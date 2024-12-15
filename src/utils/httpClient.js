@@ -1,6 +1,7 @@
 import axios from 'axios';
 import packageJson from '../../package.json';
-import { API_URL, TOKEN_KEY } from '../env';
+import { API_URL } from '../env';
+import { getToken } from './auth';
 
 class HttpClient {
   constructor(baseURL = '', defaultHeaders = {}) {
@@ -22,10 +23,7 @@ class HttpClient {
   initializeRequestInterceptor() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token =
-          (localStorage && localStorage.getItem(TOKEN_KEY)) ||
-          (sessionStorage && sessionStorage.getItem(TOKEN_KEY)) ||
-          (globalThis && globalThis[TOKEN_KEY]);
+        const token = getToken();
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`;
         }

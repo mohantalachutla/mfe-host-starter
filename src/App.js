@@ -1,23 +1,28 @@
-import { BrowserRouter } from 'react-router';
+import { BrowserRouter, useNavigate } from 'react-router';
 import AppWrapper from './components/common/AppWrapper';
 import Navbar from './components/base/Navbar';
 import AppRoutes from './Routes';
-import { TOKEN_KEY } from './env';
+import { useDispatch } from 'react-redux';
+import { logout } from './reducers/auth';
+import useIsLoggedIn from './hooks/useIsLoggedIn';
 export default () => {
   return (
-    <BrowserRouter>
-      <AppWrapper>
+    <AppWrapper>
+      <BrowserRouter>
         <Menu />
         <AppRoutes />
-      </AppWrapper>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AppWrapper>
   );
 };
 
 const Menu = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useIsLoggedIn();
+  const navigate = useNavigate();
   return (
     <Navbar fluid rounded>
-      <Navbar.Brand href="/">
+      <Navbar.Brand onClick={() => navigate('/')}>
         <img src="/favicon.png" className="mr-3 h-6 sm:h-9" alt="Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
           A2Z
@@ -25,37 +30,42 @@ const Menu = () => {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="/" active={window.location.pathname === '/'}>
+        <Navbar.Link
+          active={window.location.pathname === '/'}
+          onClick={() => navigate('/')}
+        >
           Home
         </Navbar.Link>
         <Navbar.Link
-          href="/orders"
           active={window.location.pathname === '/orders'}
+          onClick={() => navigate('/orders')}
         >
           Orders
         </Navbar.Link>
         <Navbar.Link
-          href="/wishlist"
           active={window.location.pathname === '/wishlist'}
+          onClick={() => navigate('/wishlist')}
         >
           Wishlist
         </Navbar.Link>
         <Navbar.Link
-          href="/about"
           active={window.location.pathname === '/about'}
+          onClick={() => navigate('/about')}
         >
           About
         </Navbar.Link>
-        <Navbar.Link
-          active={window.location.pathname === '/logout'}
-          onClick={(e) => {
-            e.preventDefault();
-            localStorage.removeItem(TOKEN_KEY);
-            window.location.href = '/logout';
-          }}
-        >
-          Logout
-        </Navbar.Link>
+        {isLoggedIn && (
+          <Navbar.Link
+            active={window.location.pathname === '/logout'}
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(logout());
+              navigate('/logout');
+            }}
+          >
+            Logout
+          </Navbar.Link>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
