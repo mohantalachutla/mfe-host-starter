@@ -1,12 +1,7 @@
-import { NavLink } from 'react-router';
+import Logout from 'components/Logout';
 
-const Logout = () => {
-  return (
-    <div>
-      you have been <b>logged out!</b> Please{' '}
-      <NavLink to="/login">login</NavLink> again
-    </div>
-  );
+const LogoutPage = () => {
+  return <Logout />;
 };
 
-export default Logout;
+export default LogoutPage;

@@ -22,7 +22,10 @@ class HttpClient {
   initializeRequestInterceptor() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem(TOKEN_KEY);
+        const token =
+          (localStorage && localStorage.getItem(TOKEN_KEY)) ||
+          (sessionStorage && sessionStorage.getItem(TOKEN_KEY)) ||
+          (globalThis && globalThis[TOKEN_KEY]);
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`;
         }
@@ -54,7 +57,7 @@ class HttpClient {
           // Handle 4xx, 5xx errors
           if (error.response.status === 401) {
             console.warn('Unauthorized! Redirecting to login...');
-            window.location.href = '/login';
+            if (window) window.location.href = '/login';
           }
           throw new Error(data.responseMessage);
         }

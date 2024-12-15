@@ -14,7 +14,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       {/* protected routes */}
-      <Route index element={withProtection(<Home />)} />
+      <Route index path="/" element={withProtection(<Home />)} />
       <Route path="product" element={withProtection(<Page />)} />
 
       {/* public routes */}
@@ -33,9 +33,13 @@ const withProtection = (element) => {
     return element;
   }
   return (
-    <Text>
+    <Text variant="pre">
       <Text variant="h3">
-        Please <Link to="/login">Login</Link> to view this page
+        Please{' '}
+        <Text variant="b">
+          <Link to="/login">Login</Link>
+        </Text>{' '}
+        to view this page
       </Text>
     </Text>
   );

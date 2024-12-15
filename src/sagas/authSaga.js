@@ -19,6 +19,7 @@ const loginSagaHandler = function* ({ payload }) {
     const data = yield call(login, payload);
     yield put(loginSuccess(data));
     localStorage.setItem(TOKEN_KEY, data.token);
+    window.location.href = '/';
   } catch (error) {
     yield put(loginFailure());
     yield put(showAlert({ type: ALERT_TYPES.ERROR, message: error.message }));
@@ -32,6 +33,7 @@ const registerSagaHandler = function* ({ payload }) {
     const data = yield call(register, payload);
     yield put(registerSuccess(data));
     localStorage.setItem(TOKEN_KEY, data.token);
+    window.location.href = '/';
   } catch (error) {
     yield put(registerFailure());
     yield put(showAlert({ type: ALERT_TYPES.ERROR, message: error.message }));
