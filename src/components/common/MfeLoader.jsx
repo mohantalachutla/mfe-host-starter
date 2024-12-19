@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { webpack } from '@mohantalachutla/mfe-utils';
 
 import ErrorBoundary from 'components/common/ErrorBoundary';
+import { useHistory } from 'react-router-dom';
 
 const MfeLoader = ({
   loaderOptions: { url, name, moduleName, defaultComponent, enableCache },
@@ -17,6 +18,13 @@ const MfeLoader = ({
   //   },
   //   () => {}
   //   );
+  const history = useHistory();
+  useEffect(() => {
+    window.browserHistory = history;
+    return () => {
+      window.browserHistory = null;
+    };
+  }, []);
   const MfePage = useMemo(
     () =>
       React.lazy(() =>

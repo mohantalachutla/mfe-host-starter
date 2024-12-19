@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import Register from 'components/Register';
 import { registerAction } from 'actions';
-import { useNavigate } from 'react-router';
+import useNavigate from 'hooks/useNavigate';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

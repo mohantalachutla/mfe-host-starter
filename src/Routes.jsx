@@ -1,4 +1,4 @@
-import { Routes, Route, Link, Outlet } from 'react-router';
+import { Switch, Route, Link } from 'react-router-dom';
 
 // Pages
 import Login from './pages/Login';
@@ -17,7 +17,6 @@ import useIsLoggedIn from './hooks/useIsLoggedIn';
 import useToken from './hooks/useToken';
 const AppRoutes = () => {
   useAuthentic();
-  const isLogged = useIsLoggedIn();
   const dispatch = useDispatch();
   const token = useToken();
   useEffect(() => {
@@ -31,29 +30,25 @@ const AppRoutes = () => {
     }
   }, []);
   return (
-    <Routes>
+    <Switch>
       {/* protected routes */}
-      <Route path="/" element={<Root />}>
-        <Route index element={isLogged ? <Home /> : <LoginDisclaimer />} />
-        <Route
-          path="product"
-          element={isLogged ? <Page /> : <LoginDisclaimer />}
-        />
+      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/product" render={() => <Page />} />
 
-        {/* public routes */}
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="logout" element={<Logout />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Route>
-    </Routes>
+      {/* public routes */}
+      <Route path="/login" render={() => <Login />} />
+      <Route path="/register" render={() => <Register />} />
+      <Route path="/logout" render={() => <Logout />} />
+      <Route path="*" render={() => <PageNotFound />} />
+    </Switch>
   );
 };
 
 export default AppRoutes;
 
-export const Root = () => {
-  return <Outlet />;
+const PrivateRoute = ({ render, ...props }) => {
+  const isLoggedIn = useIsLoggedIn();
+  return <Route {...props} render={isLoggedIn ? render : LoginDisclaimer} />;
 };
 
 const LoginDisclaimer = () => {

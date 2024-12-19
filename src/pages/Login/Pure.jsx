@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import Login from 'components/Login';
 import { loginAction } from 'actions';
-import { useNavigate } from 'react-router';
+import useNavigate from 'hooks/useNavigate';
 
 const LoginPage = () => {
   const dispatch = useDispatch();

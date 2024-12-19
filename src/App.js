@@ -1,10 +1,11 @@
-import { BrowserRouter, useNavigate } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import AppWrapper from './components/common/AppWrapper';
 import Navbar from './components/base/Navbar';
 import AppRoutes from './Routes';
 import { useDispatch } from 'react-redux';
 import { logout } from './reducers/auth';
 import useIsLoggedIn from './hooks/useIsLoggedIn';
+import useNavigate from './hooks/useNavigate';
 export default () => {
   return (
     <AppWrapper>
