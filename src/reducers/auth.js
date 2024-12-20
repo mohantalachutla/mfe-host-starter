@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getToken, setToken, removeToken } from '../utils/auth';
+import { setToken, removeToken } from '../utils/auth';
 // import { Buffer } from 'buffer';
 
 const initialState = {
@@ -35,7 +35,7 @@ const authSlice = createSlice({
         email,
         status,
       };
-      state.isLoggedIn = !!getToken();
+      state.isLoggedIn = true;
       state.token = token;
     },
     loginFailure: (state) => {
