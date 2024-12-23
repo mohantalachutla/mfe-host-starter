@@ -1,8 +1,10 @@
+import Container from 'components/base/Container';
+
 const Home = () => {
   return (
-    <div>
-      <h1>A React Home Page</h1>
-    </div>
+    <Container>
+      <h1 className="text-3xl text text-center">A React HomePage</h1>
+    </Container>
   );
 };
 

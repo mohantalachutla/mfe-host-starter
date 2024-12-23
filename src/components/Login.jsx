@@ -17,7 +17,9 @@ const Login = ({ onSubmit }) => {
   };
   return (
     <Container>
-      <Text variant="h1">Login</Text>
+      <Text variant="h1" className="text-3xl text text-center">
+        Login
+      </Text>
       <Text>
         <Label htmlFor="email" value="Email" />
         <Input
