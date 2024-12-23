@@ -18,7 +18,9 @@ const Login = ({ onSubmit }) => {
   };
   return (
     <Container>
-      <Text variant="h1">Register</Text>
+      <Text variant="h1" className="text-3xl text text-center">
+        Register
+      </Text>
       <Text>
         <Label htmlFor="username" value="Username" />
         <Input
