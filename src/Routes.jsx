@@ -4,6 +4,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Page from './pages/Page';
+import Order from './pages/Order';
 import PageNotFound from './components/common/PageNotFound';
 import Text from './components/base/Text';
 import Logout from './pages/Logout';
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       {/* protected routes */}
       <Route exact path="/" render={() => <Home />} />
       <Route exact path="/product" render={() => <Page />} />
+      <Route exact path="/orders" render={() => <Order />} />
 
       {/* public routes */}
       <Route path="/login" render={() => <Login />} />

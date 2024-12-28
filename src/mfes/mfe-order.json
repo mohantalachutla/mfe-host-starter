@@ -1,0 +1,14 @@
+{
+  "name": "mfe_order",
+  "url": "http://localhost:9002",
+  "modules": ["./Home", "./Sample"],
+  "events": {
+    "mfe": {
+      "MFE_ORDER_HOST_READY": "MFE_ORDER_HOST_READY",
+      "MFE_ORDER_HOST_DONE": "MFE_ORDER_HOST_DONE"
+    },
+    "host": {
+      "HOST_MFE_ORDER_ACKNOWLEDGE": "HOST_MFE_ORDER_ACKNOWLEDGE"
+    }
+  }
+}

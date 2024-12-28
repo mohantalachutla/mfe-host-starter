@@ -1,3 +1,4 @@
 import mfeProduct from './mfe-product';
+import mfeOrder from './mfe-order';
 
-export { mfeProduct };
+export { mfeProduct, mfeOrder };
