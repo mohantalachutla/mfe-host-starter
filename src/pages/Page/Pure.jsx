@@ -1,14 +1,14 @@
 import React from 'react';
 import MfeLoader from 'components/common/MfeLoader';
-import { mfeStarter } from 'mfes';
+import { mfeProduct } from 'mfes';
 
 // FIXME: error boundary
 export default () => {
   return (
     <MfeLoader
       loaderOptions={{
-        url: mfeStarter.url,
-        name: mfeStarter.name,
+        url: mfeProduct.url,
+        name: mfeProduct.name,
       }}
     />
   );

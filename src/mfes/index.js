@@ -1,3 +1,3 @@
-import mfeStarter from './mfe-starter';
+import mfeProduct from './mfe-product';
 
-export { mfeStarter };
+export { mfeProduct };

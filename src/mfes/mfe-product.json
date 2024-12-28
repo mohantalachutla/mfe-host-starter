@@ -1,0 +1,14 @@
+{
+  "name": "mfe_product",
+  "url": "http://localhost:9001",
+  "modules": ["./Home", "./Sample"],
+  "events": {
+    "mfe": {
+      "MFE_PRODUCT_HOST_READY": "MFE_PRODUCT_HOST_READY",
+      "MFE_PRODUCT_HOST_DONE": "MFE_PRODUCT_HOST_DONE"
+    },
+    "host": {
+      "HOST_MFE_PRODUCT_ACKNOWLEDGE": "HOST_MFE_PRODUCT_ACKNOWLEDGE"
+    }
+  }
+}

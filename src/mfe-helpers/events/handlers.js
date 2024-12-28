@@ -2,10 +2,10 @@ import { registry } from '@mohantalachutla/mfe-utils';
 import actions from './actions';
 
 const _consumes = {
-  MFE_STARTER_HOST_READY: ({ name }) => {
+  MFE_PRODUCT_HOST_READY: ({ name }) => {
     actions.dispatchAcknowledge({ name });
   },
-  // MFE_STARTER_HOST_DONE: ({ name }) => {
+  // MFE_PRODUCT_HOST_DONE: ({ name }) => {
   //   console.info(`HOST::${name} - 3 WAY HANDSHAKE DONE`);
   // },
 };
