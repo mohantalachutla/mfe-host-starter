@@ -61,7 +61,7 @@ const Menu = () => {
         >
           About
         </Navbar.Link>
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <Navbar.Link
             active={window.location.pathname === '/logout'}
             onClick={(e) => {
@@ -71,6 +71,16 @@ const Menu = () => {
             }}
           >
             Logout
+          </Navbar.Link>
+        ) : (
+          <Navbar.Link
+            active={window.location.pathname === '/login'}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/login');
+            }}
+          >
+            Login
           </Navbar.Link>
         )}
       </Navbar.Collapse>
