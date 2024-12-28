@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Page from './pages/Page';
 import Order from './pages/Order';
+import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
 import PageNotFound from './components/common/PageNotFound';
 import Text from './components/base/Text';
@@ -38,6 +39,7 @@ const AppRoutes = () => {
       <Route exact path="/product" render={() => <Page />} />
       <Route exact path="/orders" render={() => <Order />} />
       <Route exact path="/wishlist" render={() => <Wishlist />} />
+      <Route exact path="/cart" render={() => <Cart />} />
 
       {/* public routes */}
       <Route path="/login" render={() => <Login />} />

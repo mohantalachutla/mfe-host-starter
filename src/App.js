@@ -50,6 +50,12 @@ const Menu = () => {
           Wishlist
         </Navbar.Link>
         <Navbar.Link
+          active={window.location.pathname === '/cart'}
+          onClick={() => navigate('/cart')}
+        >
+          Cart
+        </Navbar.Link>
+        <Navbar.Link
           active={window.location.pathname === '/about'}
           onClick={() => navigate('/about')}
         >

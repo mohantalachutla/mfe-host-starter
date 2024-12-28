@@ -1,0 +1,14 @@
+{
+  "name": "mfe_cart",
+  "url": "http://localhost:9004",
+  "modules": ["./Home", "./Sample"],
+  "events": {
+    "mfe": {
+      "MFE_CART_HOST_READY": "MFE_CART_HOST_READY",
+      "MFE_CART_HOST_DONE": "MFE_CART_HOST_DONE"
+    },
+    "host": {
+      "HOST_MFE_CART_ACKNOWLEDGE": "HOST_MFE_CART_ACKNOWLEDGE"
+    }
+  }
+}
