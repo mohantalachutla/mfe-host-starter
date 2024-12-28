@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
+import Container from '../base/Container';
 const PageNotFound = () => {
   return (
-    <div>
+    <Container>
       <h1>404</h1>
-      <p>Oops! Page not found</p>
+      <pre>Oops! Page not found</pre>
       <NavLink to="/">Go to Home</NavLink>
-    </div>
+    </Container>
   );
 };
 

@@ -3,9 +3,16 @@ import { webpack } from '@mohantalachutla/mfe-utils';
 
 import ErrorBoundary from 'components/common/ErrorBoundary';
 import { useHistory } from 'react-router-dom';
+import Downtime from './Downtime';
 
 const MfeLoader = ({
-  loaderOptions: { url, name, moduleName, defaultComponent, enableCache },
+  loaderOptions: {
+    url,
+    name,
+    moduleName,
+    defaultComponent = Downtime,
+    enableCache,
+  },
   ...props
 }) => {
   // const cache = useSelector((state) => state.cache?.cache);
