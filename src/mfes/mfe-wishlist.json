@@ -1,0 +1,14 @@
+{
+  "name": "mfe_wishlist",
+  "url": "http://localhost:9003",
+  "modules": ["./Home", "./Sample"],
+  "events": {
+    "mfe": {
+      "MFE_WISHLIST_HOST_READY": "MFE_WISHLIST_HOST_READY",
+      "MFE_WISHLIST_HOST_DONE": "MFE_WISHLIST_HOST_DONE"
+    },
+    "host": {
+      "HOST_MFE_WISHLIST_ACKNOWLEDGE": "HOST_MFE_WISHLIST_ACKNOWLEDGE"
+    }
+  }
+}
