@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Page from './pages/Page';
 import Order from './pages/Order';
 import Cart from './pages/Cart';
+import About from './pages/About';
 import Wishlist from './pages/Wishlist';
 import PageNotFound from './components/common/PageNotFound';
 import Text from './components/base/Text';
@@ -40,6 +41,7 @@ const AppRoutes = () => {
       <Route exact path="/orders" render={() => <Order />} />
       <Route exact path="/wishlist" render={() => <Wishlist />} />
       <Route exact path="/cart" render={() => <Cart />} />
+      <Route exact path="/about" render={() => <About />} />
 
       {/* public routes */}
       <Route path="/login" render={() => <Login />} />
