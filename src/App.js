@@ -31,39 +31,15 @@ const Menu = () => {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link
-          active={window.location.pathname === '/product'}
-          onClick={() => navigate('/product')}
-        >
-          Shop Now
-        </Navbar.Link>
-        <Navbar.Link
-          active={window.location.pathname === '/orders'}
-          onClick={() => navigate('/orders')}
-        >
-          Orders
-        </Navbar.Link>
-        <Navbar.Link
-          active={window.location.pathname === '/wishlist'}
-          onClick={() => navigate('/wishlist')}
-        >
+        <Navbar.Link onClick={() => navigate('/product')}>Shop Now</Navbar.Link>
+        <Navbar.Link onClick={() => navigate('/orders')}>Orders</Navbar.Link>
+        <Navbar.Link onClick={() => navigate('/wishlist')}>
           Wishlist
         </Navbar.Link>
-        <Navbar.Link
-          active={window.location.pathname === '/cart'}
-          onClick={() => navigate('/cart')}
-        >
-          Cart
-        </Navbar.Link>
-        <Navbar.Link
-          active={window.location.pathname === '/about'}
-          onClick={() => navigate('/about')}
-        >
-          About
-        </Navbar.Link>
+        <Navbar.Link onClick={() => navigate('/cart')}>Cart</Navbar.Link>
+        <Navbar.Link onClick={() => navigate('/about')}>About</Navbar.Link>
         {isLoggedIn ? (
           <Navbar.Link
-            active={window.location.pathname === '/logout'}
             onClick={(e) => {
               e.preventDefault();
               dispatch(logout());
@@ -74,7 +50,6 @@ const Menu = () => {
           </Navbar.Link>
         ) : (
           <Navbar.Link
-            active={window.location.pathname === '/login'}
             onClick={(e) => {
               e.preventDefault();
               navigate('/login');
